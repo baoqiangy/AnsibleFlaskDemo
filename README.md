@@ -4,7 +4,7 @@
 Update packages on your base CentOS 8 VM, then use the updated VM as the base machine for the following link clones.
 
 **Step2:**
-Link clone 2 Copies of the updated Cent OS 8 VM with some static IPs and the hostnames. If you choose to use different hostnames. You need to figure out by yourself which files to change.
+Link clone 2 Copies of the updated Cent OS 8 VM with some static IPs and the following hostnames. If you choose to use different hostnames. You need to figure out by yourself which files to change.
 - flask-nocontainer
 - flask-container
 
@@ -18,7 +18,7 @@ Make sure these 3 VMs are in the same network (NatNetwork preferred).
 On the controller, 
 
  1. Make sure you have Ansible installed.
- 2. Install the collections as mentioned in previous assignments and the **geerlingguy.mysql** from ansible galaxy.
+ 2. Install the collections as mentioned in previous assignments and the **geerlingguy.mysql** role from ansible galaxy.
  3. Clone this CSC324_Exam3 repo.
  4. Set up the two key-pairs as mentioned in previous assignments, push the public-key of your current user account to **'flask-container'** and **'flask-nocontainer'**.
 
@@ -35,14 +35,13 @@ On the 'controller',
 
     *$ansible-playbook -u byan --key-file ~/.ssh/id_ed25519 --extra-vars="host=flask-nocontainer" playbooks/prepare.yml -K*
 
- 3. Then run the **deploy_noncontainerized_flask.yml** playbook using the
-    following command.
+ 3. Then execute the **deploy_noncontainerized_flask.yml** playbook using the following command.
 
      *$ansible-playbook playbooks/deploy_noncontainerized_flask.yml*
 
 	Once it is completed, set up the port forwarding so you try the flask app on your host machine. Register an user and login.
 
-4. Then run the **deploy_containerized_flask.yml** playbook using the following command.
+4. Then execute the **deploy_containerized_flask.yml** playbook using the following command.
 
      *$ansible-playbook playbooks/deploy_containerized_flask.yml*
 	
