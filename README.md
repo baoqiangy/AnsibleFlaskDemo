@@ -19,7 +19,7 @@ On the controller,
 
  1. Make sure you have Ansible installed.
  2. Install the collections as mentioned in previous assignments and the **geerlingguy.mysql** from ansible galaxy.
- 3. Clone this CSC324-Exam3 repo.
+ 3. Clone this CSC324_Exam3 repo.
  4. Set up the two key-pairs as mentioned in previous assignments, push the public-key of your current user account to **'flask-container'** and **'flask-nocontainer'**.
 
  **Step4:**
