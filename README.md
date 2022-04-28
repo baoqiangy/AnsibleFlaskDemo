@@ -25,7 +25,7 @@ On the controller,
  **Step4:**
 On the 'controller', 
 
- 1. Cd into the CSC324-Exam3 directory.
+ 1. Cd into the CSC324_Exam3 directory.
  2. Run the following commands to provision an Ansible agent user account on **'flask-container'** and **'flask-nocontainer'**. 
  (**Replace byan with your own username, and replace id_ed25519 with your own private key file**)
 	
