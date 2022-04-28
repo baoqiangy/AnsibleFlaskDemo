@@ -1,0 +1,9 @@
+---
+
+- hosts: flask-container 
+  become: true
+  vars_files:
+    - ../vars/agent.yml
+  roles:
+    - ../roles/docker
+    - ../roles/containerized_flask

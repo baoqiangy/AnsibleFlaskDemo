@@ -1,0 +1,20 @@
+---
+# tasks file for containerized_flask
+- name: Clone a github repository
+  git:
+    repo: https://github.com/mwsu-csmp/FlaskDemo.git
+    dest: '/home/{{ agent_user }}/FlaskDemo/'
+    clone: yes
+    update: yes
+
+- name: Install Docker SDK
+  pip:
+    name: docker
+
+  # use files parameter to use multiple docker-compose.yml files
+- name: Deploy Docker Compose stack
+  shell: | 
+    /usr/local/bin/docker-compose -f /home/{{ agent_user }}/FlaskDemo/flaskdemo_vol_remote.yml down
+    /usr/local/bin/docker-compose -f /home/{{ agent_user }}/FlaskDemo/flaskdemo_vol_remote.yml up -d
+
+

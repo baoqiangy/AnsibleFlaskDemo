@@ -1,0 +1,24 @@
+---
+# tasks file for users
+
+- name: Add a new user student
+  tags: always
+  user:
+    name: '{{ agent_user }}'
+    groups: root
+
+- name: Add ssh key for the new user student
+  tags: always
+  authorized_key:
+    user: '{{ agent_user }}'
+    key: "{{ lookup('file', '~/.ssh/ansible.pub') }}"
+ 
+- name: Add student user to sudoers without password
+  copy:
+    dest: "/etc/sudoers.d/{{ agent_user }}"
+    owner: root
+    group: root
+    mode: 0440
+    content: |
+      {{ agent_user }} ALL=(ALL) NOPASSWD: ALL
+

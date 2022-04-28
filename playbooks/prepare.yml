@@ -1,0 +1,9 @@
+---
+- name: Update packages on the containerized server
+  vars_files:
+    - ../vars/agent.yml
+  hosts: '{{ host }}' 
+  become: true
+  roles:
+    - ../roles/base
+    - ../roles/users

@@ -1,0 +1,7 @@
+mysql_root_password_update: true
+mysql_root_password: password
+mysql_databases:
+  - name: flaskdemo
+    encoding: utf8mb4
+    collation: utf8mb4_unicode_ci
+

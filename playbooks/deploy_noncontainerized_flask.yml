@@ -1,0 +1,13 @@
+---
+
+- name: Install Database and FlaskDemo on the server with no container
+  vars_files:
+    - ../vars/agent.yml
+    - ../vars/database.yml
+    - ../vars/flask.yml
+  hosts: flask-nocontainer
+  become: true
+  roles:
+    - geerlingguy.mysql 
+    - ../roles/noncontainerized_flask
+

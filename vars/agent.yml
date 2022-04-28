@@ -1,0 +1,3 @@
+---
+# variables available to all roles
+agent_user: ansible-agent

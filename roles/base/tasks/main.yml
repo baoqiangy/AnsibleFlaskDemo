@@ -1,0 +1,8 @@
+---
+# tasks file for base
+- name: Update packages
+  package:
+    name: "*"
+    state: latest
+    update_cache: true
+

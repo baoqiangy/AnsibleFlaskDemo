@@ -1,0 +1,50 @@
+---
+# tasks file for flask
+- name: Clone the github repository
+  git:
+    repo: https://github.com/mwsu-csmp/FlaskDemo.git
+    dest: /home/{{ agent_user }}/FlaskDemo/
+    clone: yes
+    update: yes
+
+- name: install virtualenv
+  become: true
+  pip:
+    name: virtualenv
+
+#Add the bin path of virtualenv to $PATH
+- name: Add path of virtualenv to system-wide $PATH.
+  become: true
+  # Make sure its idempotent otherwise PATH grows on every run.
+  when: ansible_env.PATH is not search(my_custom_path_var)
+  copy:
+    dest: /etc/profile.d/custom-path.sh
+    content: 'PATH=$PATH:{{ my_custom_path_var }}'
+    mode: 0755
+
+
+- name: install modules in a virtualenv
+  become: false
+  pip:
+    requirements: /home/{{ agent_user }}/FlaskDemo/requirements.txt
+    virtualenv: /home/{{ agent_user }}/FlaskDemo/venv
+    virtualenv_python: python3.6.8
+
+- name: start the flask app
+  become: false
+  shell: |
+     cd  /home/{{ agent_user }}/FlaskDemo/
+     source venv/bin/activate
+     source ./.flaskenv
+     flask db upgrade
+     nohup flask run </dev/null >/dev/null 2>&1 &
+
+- name: open port 5000
+  become: true
+  firewalld:
+    zone: public
+    port: 5000/tcp
+    state: enabled
+    permanent: true
+    immediate: true
+
