@@ -2,6 +2,7 @@
 
 **Step1:**
 Update packages on your base CentOS 8 VM, then use the updated VM as the base machine for the following link clones.
+
 **Step2:**
 Link clone 2 Copies of the updated Cent OS 8 VM with some static IPs and the hostnames. If you choose to use different hostnames. You need to figure out by yourself which files to change.
 - flask-nocontainer
