@@ -1,6 +1,7 @@
 ---
 # tasks file for flask
 - name: Clone the github repository
+  become: false
   git:
     repo: https://github.com/mwsu-csmp/FlaskDemo.git
     dest: /home/{{ agent_user }}/FlaskDemo/
