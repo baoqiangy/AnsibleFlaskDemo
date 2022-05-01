@@ -49,12 +49,10 @@ On the 'controller',
 
 Students might get complaints about "DNF" when executing the docker role. I never had this issue, but I believe the reason why this error pops up is because DNF is the package manager in the output of the gather_facts, as shown below. Then why didn't it complain to me? I don't know the reason yet. I repeated the lab with a fresh copy of the base machine that I never did package update on and it still worked for me. 
 
-$ansible -m setup flask-container -a 'filter=ansible_pkg_mgr'
-flask-container | SUCCESS => {
-    "ansible_facts": {
-        "ansible_pkg_mgr": "dnf",
-        "discovered_interpreter_python": "/usr/libexec/platform-python"
-    },
-    "changed": false
-}
-
+> $ansible -m setup flask-container -a 'filter=ansible_pkg_mgr'
+> flask-container | SUCCESS => {
+>     "ansible_facts": {
+>         "ansible_pkg_mgr": "dnf",
+>         "discovered_interpreter_python": "/usr/libexec/platform-python"
+>     },
+>     "changed": false }
