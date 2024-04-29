@@ -7,14 +7,18 @@
     clone: yes
     update: yes
 
+- name: Install pip if it does not exist.
+  package:
+    name: python3-pip
+    state: latest
+
 - name: Install Docker SDK
   pip:
     name: docker
 
-  # use files parameter to use multiple docker-compose.yml files
+# use files parameter to use multiple docker-compose.yml files
 - name: Deploy Docker Compose stack
-  shell: | 
+  shell: |
     /usr/local/bin/docker-compose -f /home/{{ agent_user }}/FlaskDemo/flaskdemo_vol_remote.yml down
     /usr/local/bin/docker-compose -f /home/{{ agent_user }}/FlaskDemo/flaskdemo_vol_remote.yml up -d
-
-
+	
