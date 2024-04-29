@@ -21,4 +21,3 @@
   shell: |
     /usr/local/bin/docker-compose -f /home/{{ agent_user }}/FlaskDemo/flaskdemo_vol_remote.yml down
     /usr/local/bin/docker-compose -f /home/{{ agent_user }}/FlaskDemo/flaskdemo_vol_remote.yml up -d
-	
