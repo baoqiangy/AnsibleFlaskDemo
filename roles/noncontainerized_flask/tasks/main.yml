@@ -8,6 +8,11 @@
     clone: yes
     update: yes
 
+- name: Install pip if it does not exist.
+  package:
+    name: python3-pip
+    state: latest
+
 - name: install virtualenv
   become: true
   pip:
@@ -29,7 +34,7 @@
   pip:
     requirements: /home/{{ agent_user }}/FlaskDemo/requirements.txt
     virtualenv: /home/{{ agent_user }}/FlaskDemo/venv
-    virtualenv_python: python3.6.8
+    virtualenv_python: python
 
 - name: start the flask app
   become: false
