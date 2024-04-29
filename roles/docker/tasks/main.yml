@@ -1,5 +1,7 @@
 ---
+
 # tasks file for docker
+
 - name: Install yum-utils for yum-config-manager
   yum:
     name: yum-utils
@@ -12,8 +14,8 @@
 - name: Install Docker
   yum:
     name:
-      - docker-ce-20.10.9
-      - docker-ce-cli-20.10.9
+      - docker-ce
+      - docker-ce-cli
       - containerd.io
     allowerasing: true
     nobest: true
@@ -32,7 +34,7 @@
 
 - name: Download and install Docker Compose
   get_url:
-    url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+    url: https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 
     dest: /usr/local/bin/docker-compose
     mode: 0755
-
+    
