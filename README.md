@@ -1,14 +1,14 @@
 # CSC324_Exam3
 
 **Step1:**
-Update packages on your base CentOS 8 VM, then use the updated VM as the base machine for the following link clones.
+Update packages on your base CentOS VM, then use the updated VM as the base machine for the following link clones.
 
 **Step2:**
-Link clone 2 Copies of the updated Cent OS 8 VM with some static IPs and the following hostnames. If you choose to use different hostnames. You need to figure out by yourself which files to change.
+Link clone 2 Copies of the updated Cent OS VM with some static IPs and the following hostnames. If you choose to use different hostnames. You need to figure out by yourself which files to change.
 - flask-nocontainer
 - flask-container
 
-If you already have the Ansible controller set up, keep using it. Otherwise, you need to link clone another copy of the Cent OS 8 VM and give it a static IP and a hostname **'controller'**.
+If you already have the Ansible controller set up, keep using it. Otherwise, you need to link clone another copy of the Cent OS VM and give it a static IP and a hostname **'controller'**.
 
 Add the IP-hostname mappings of the two new VMs to the controller's /etc/hosts.
 
