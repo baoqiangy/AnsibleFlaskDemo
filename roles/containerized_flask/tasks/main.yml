@@ -2,7 +2,7 @@
 # tasks file for containerized_flask
 - name: Clone a github repository
   git:
-    repo: https://github.com/mwsu-csmp/FlaskDemo.git
+    repo: https://github.com/baoqiangy/FlaskDemo.git
     dest: '/home/{{ agent_user }}/FlaskDemo/'
     clone: yes
     update: yes
