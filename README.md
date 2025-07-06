@@ -1,4 +1,4 @@
-# CSC324_Exam3
+# AnsibleFlaskDemo
 
 **Step1:**
 Update packages on your base CentOS VM, then use the updated VM as the base machine for the following link clones.
@@ -22,13 +22,13 @@ On the controller,
 	- ansible.posix
 	- community.general
 	- community.mysql
- 3. Clone this CSC324_Exam3 repo.
+ 3. Clone this AnsibleFlaskDemo repo.
  4. Set up the two key-pairs as demonstrated in class (**one named ansible without passphrase, one for your user account with a passphrase**), push the public-key of your **current user account** (not the ansible public key) to **'flask-container'** and **'flask-nocontainer'**.
 
  **Step4:**
 On the 'controller', 
 
- 1. Cd into the CSC324_Exam3 directory.
+ 1. Cd into the AnsibleFlaskDemo directory.
  2. Run the following commands to provision an Ansible agent user account on **'flask-container'** and **'flask-nocontainer'**. 
  (**Replace byan with your own username, and replace id_ed25519 with your own private key file.**)
 	
@@ -52,15 +52,4 @@ On the 'controller',
 	
 	Once it is completed, set up the port forwarding so you try the flask app on your host machine. Register an user and login.
 	(**If the forwarding is not working, just try it on the flask-container directly. **)
-	
-(**Ignore following statements if you don't see the DNF error. Even if you see this error, simply ignore it and submit the recorded video.**)
-Students might get complaints about "DNF" when executing the docker role. I never had this issue, but I believe the reason why this error pops up is because DNF is the package manager in the output of the gather_facts, as shown below. Then why didn't it complain to me? I don't know the reason yet. I repeated the lab with a fresh copy of the base machine that I never did package update on and it still worked for me. 
 
-> $ansible -m setup flask-container -a 'filter=ansible_pkg_mgr' <br />
-> flask-container | SUCCESS => {<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;"ansible_facts": {<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ansible_pkg_mgr": "dnf",<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"discovered_interpreter_python": "/usr/libexec/platform-python"<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;},<br />
-> &nbsp;&nbsp;&nbsp;&nbsp;"changed": false <br />
-> }
