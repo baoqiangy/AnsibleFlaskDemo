@@ -50,5 +50,6 @@ On the 'controller',
 	
 	Once it is completed, set up the port forwarding so you try the flask app on your host machine. Register an user and login.
 	(**If the forwarding is not working, just try it on server2 and server3 directly. **)
+
 **Note:**
 If you have problems executing step 5, try restoring the snapshot you created in step 4 then repeat step 5.
