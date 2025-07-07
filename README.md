@@ -32,8 +32,7 @@ On the 'controller',
 
  1. Cd into the AnsibleFlaskDemo directory.
  2. Run the following commands to provision an Ansible agent user account on all the servers. 
- (**Replace byan with your own username, and replace id_ed25519 with your own private key file.**)
-	
+ 	
 
     *$ansible-playbook -u student --key-file ~/.ssh/ansible --extra-vars="host=all" playbooks/prepare.yml -K*	
 
