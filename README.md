@@ -33,9 +33,7 @@ On the 'controller',
  (**Replace byan with your own username, and replace id_ed25519 with your own private key file.**)
 	
 
-    *$ansible-playbook -u byan --key-file ~/.ssh/id_ed25519 --extra-vars="host=flask-container" playbooks/prepare.yml -K*	
-
-    *$ansible-playbook -u byan --key-file ~/.ssh/id_ed25519 --extra-vars="host=flask-nocontainer" playbooks/prepare.yml -K*
+    *$ansible-playbook -u student --key-file ~/.ssh/ansible --extra-vars="host=all" playbooks/prepare.yml -K*	
 
    (**If you get errors when executing the tasks in prepare.yml, remove the base role from prepare.yml, then try again. The reason why the errors occurr might be because the daemons are already running.**)
 

@@ -1,6 +1,6 @@
 ---
 
-- hosts: flask-container 
+- hosts: containers 
   become: true
   vars_files:
     - ../vars/agent.yml

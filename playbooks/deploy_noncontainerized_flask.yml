@@ -5,9 +5,22 @@
     - ../vars/agent.yml
     - ../vars/database.yml
     - ../vars/flask.yml
-  hosts: flask-nocontainer
+  hosts: nocontainers
   become: true
+  pre_tasks:
+    - name: Check if file "{{ mysql_user_home }}/.my.cnf" exists.
+      stat:
+        path: "{{ mysql_user_home }}/.my.cnf"
+      register: mycnfexists
+
+    - name: Remove the potential file "{{ mysql_user_home }}/.my.cnf"
+      file:
+        name: "{{ mysql_user_home }}/.my.cnf"
+        state: absent
+      when: mycnfexists.stat.exists
+
   roles:
-    - geerlingguy.mysql 
-    - ../roles/noncontainerized_flask
+    - role: geerlingguy.mysql
+      become: true 
+    - role: ../roles/noncontainerized_flask
 

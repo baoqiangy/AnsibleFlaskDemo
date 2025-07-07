@@ -8,6 +8,12 @@
     clone: yes
     update: yes
 
+- name: Switch to use student as mysql username 
+  lineinfile: 
+    path: /home/{{ agent_user }}/FlaskDemo/.flaskenv
+    regexp: '^DATABASE_URL'
+    line:  DATABASE_URL=mysql+pymysql://student:secret@localhost:3306/flaskdemo
+
 - name: Install pip if it does not exist.
   package:
     name: python3-pip

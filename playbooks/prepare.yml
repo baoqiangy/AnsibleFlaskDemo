@@ -4,6 +4,15 @@
     - ../vars/agent.yml
   hosts: '{{ host }}' 
   become: true
+
   roles:
     - ../roles/base
     - ../roles/users
+
+  post_tasks:
+    - name: Install Git
+      become: true
+      yum:
+        name: git
+        state: present
+
