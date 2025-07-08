@@ -49,7 +49,7 @@
      source venv/bin/activate
      source ./.flaskenv
      flask db upgrade
-     nohup flask run </dev/null >/dev/null 2>&1 &
+     nohup flask run --host=0.0.0.0 </dev/null >/dev/null 2>&1 &
 
 - name: open port 5000
   become: true
