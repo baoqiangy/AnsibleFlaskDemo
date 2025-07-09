@@ -25,9 +25,6 @@ On the controller,
  5. Follow the steps on slide 33 to provision a sudoer user **student** that can login with the ansible private key that is NOT protected by a passphrase.  
 
 **Step4:**
-Take a snapshot on all VMs. You can repeat the following steps by first restoring these snapshots on the servers then running the commands on the controller.
-
-**Step5:**
 On the 'controller', 
 
  1. Cd into the AnsibleFlaskDemo directory.
@@ -36,6 +33,7 @@ On the 'controller',
 
     *$ansible-playbook -u student --key-file ~/.ssh/ansible --extra-vars="host=all" playbooks/prepare.yml -K*	
 
+     Take a snapshot on all VMs now. You can repeat the following steps by first restoring these snapshots on the servers then running these commands again on the controller.
 
 3. Then execute the **deploy_noncontainerized_flask.yml** playbook using the following command.
 
@@ -52,4 +50,4 @@ On the 'controller',
 	(**If the forwarding is not working, just try it on server2 and server3 directly. **)
 
 **Note:**
-If you have problems executing step 5, try restoring the snapshot you created in step 4 then repeat step 5.
+If you have problems executing step 5, try restoring the snapshot you created in step 4.2 then repeat step 4.3 and 4.4.
