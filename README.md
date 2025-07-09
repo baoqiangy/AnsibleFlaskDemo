@@ -30,24 +30,25 @@ On the 'controller',
  1. Cd into the AnsibleFlaskDemo directory.
  2. Run the following commands to provision an Ansible agent user account on all the servers. 
  	
-    *$ansible-playbook -u student --key-file ~/.ssh/ansible --extra-vars="host=all" playbooks/prepare.yml -K*
+    **$ansible-playbook -u student --key-file ~/.ssh/ansible --extra-vars="host=all" playbooks/prepare.yml -K**
 
     Make sure there is no previous mysql database server running on the the servers by running the following command. 
     (Use your own paths to the inventory and yml files. Change the inventory, if needed, to include server2 and server3 in the database server group.)
-    *ansible-playbook -i ~/Documents/AnsibleDemo/inventory_servergroup ~/Documents/AnsibleDemo/uninstall_web_db.yml -K*
+    
+    **ansible-playbook -i ~/Documents/AnsibleDemo/inventory_servergroup ~/Documents/AnsibleDemo/uninstall_web_db.yml -K**
     
     Take a snapshot on all VMs now. You can repeat the following steps by first restoring these snapshots on the servers then running these commands again on the controller.
 
 4. Then execute the **deploy_noncontainerized_flask.yml** playbook using the following command.
 
-     *$ansible-playbook playbooks/deploy_noncontainerized_flask.yml*
+     **$ansible-playbook playbooks/deploy_noncontainerized_flask.yml**
 
 	Once it is completed, set up the port forwarding so you can try the flask app on your host machine. Register an user and login.
 	(**If the forwarding is not working, just try it on server1 directly. **)
 
 5. Then execute the **deploy_containerized_flask.yml** playbook using the following command.
 
-     *$ansible-playbook playbooks/deploy_containerized_flask.yml*
+     **$ansible-playbook playbooks/deploy_containerized_flask.yml**
 	
 	Once it is completed, set up the port forwarding so you try the flask app on your host machine. Register an user and login.
 	(**If the forwarding is not working, just try it on server2 and server3 directly. **)
