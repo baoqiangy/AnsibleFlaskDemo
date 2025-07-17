@@ -54,4 +54,4 @@ On the 'controller',
 	(**If the forwarding is not working, just try it on server2 and server3 directly. **)
 
 **Note:**
-If you have problems executing step 5, try restoring the snapshot you created in step 4.2 then repeat step 4.3 and 4.4.
+If you have problems executing step 4, try restoring the snapshot you created in step 4.2 then repeat step 4.3 and 4.4.
