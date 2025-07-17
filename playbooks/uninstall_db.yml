@@ -1,0 +1,16 @@
+---
+- hosts: containers
+  become: true
+  vars_files:
+    - ../vars/database.yml
+  tasks:
+  - name: Stop MySQL
+    service:
+      name: "{{ dbservice_name }}"
+      state: stopped
+
+  - name: Uninstall MySQL database on database servers
+    package:
+      name: 
+      - "{{ dbserver_package }}"
+      state: absent

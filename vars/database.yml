@@ -1,3 +1,5 @@
+dbserver_package: mysql-server
+dbservice_name: mysqld
 mysql_root_password_update: true
 mysql_root_password: password
 mysql_databases:
