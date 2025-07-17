@@ -29,11 +29,12 @@ On the 'controller',
 
  1. Cd into the AnsibleFlaskDemo directory.
  2. Run the following commands to provision an Ansible agent user account on all the servers. 
- 	
+
     **$ansible-playbook -u student --key-file ~/.ssh/ansible --extra-vars="host=all" playbooks/prepare.yml -K**
 
     Make sure there is no previous mysql database server running on the the servers by running the following command. 
     (It is OK to see error messages when running this playbook. Just run it and move on.)
+
     **ansible-playbook playbooks/uninstall_web_db.yml -K**
     
     Take a snapshot on all VMs now. You can repeat the following steps by first restoring these snapshots on the servers then running these commands again on the controller.
